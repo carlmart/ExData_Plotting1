@@ -25,17 +25,15 @@ lines(hpc2$daytime,hpc2$Voltage)
 axis(1,at=1:3,lab=c("Thu","Fri","Sat"))
 
 # #3 bottom left old plot3
-hist(hpc2$Global_active_power,freq=T,xlab="Global Active Power (kilowatts)",ylab="Frequency",main="Global Active Power",col="red")
 plot(hpc2$daytime,hpc2$Sub_metering_1,ylab="Energy sub metering",type="l",xaxt="n")
 lines(hpc2$daytime,hpc2$Sub_metering_1,ylab="Energy sub metering")
-#lines(hpc2$Sub_metering_1, type="l", col="black")
-lines(hpc2$Sub_metering_2, type="l", col="red")
+lines(hpc2$Sub_metering_2, type="l", col="red")#lines(hpc2$Sub_metering_1, type="l", col="black")
 lines(hpc2$Sub_metering_3, type="l", col="blue")
 legend_labels <- c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3")
 legend_colors <- c("black", "red", "blue")
 legend("topright", legend = legend_labels, col = legend_colors, lty = 1, bg = "transparent", box.col = "transparent", cex = 0.95)
 
-# #4 
+# #4  bottom right
 
 plot(hpc2$daytime,hpc2$Global_reactive_power,ylab="Global Reactive Power (kilowatts)",type="l",xaxt="n")
 lines(hpc2$daytime,hpc2$Global_reactive_power)

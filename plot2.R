@@ -9,19 +9,16 @@ hpc2$Date <- as.Date(hpc2$Date,format="%d/%m/%Y")
 daytime <- data.frame(paste(hpc2$Date,hpc2$Time,sep=" "))
 names(daytime) <- "daytime"
 hpc2 <- cbind(hpc2,daytime)
+
 # Construct the plot and save it to a PNG file with a width of 480 pixels and a height of 480 pixels.
 # default to pdf  for batch mode
 
 png(filename="plot2.png",width=480,height=480)
 # option axes=FALSE suppresses both x and y axes. xaxt="n" and yaxt="n" suppress the x or y axis 
-plot(hpc2$daytime,hpc2$Global_active_power,ylab="Global Active Power (kilowatts)",type="l",xaxt="n",axis=FALSE)
+#     as.POSIXct(paste(hpc2$Date,hpc2$Time),"%d/%m/%Y %H:%M:%S" ) ,
+plot(hpc2$daytime,hpc2$Global_active_power,ylab="Global Active Power (kilowatts)",type="l",xaxt="n")
 lines(hpc2$daytime,hpc2$Global_active_power,ylab="Global Active Power (kilowatts)")
-box()
-#axis(side=1)
-axis(side=1,at=1:3,lab=c("Thu","Fri","Sat"))
-axis(side=2)
-
-
+axis(1,at=seq(1,4380,by = 1460),lab=c("Thu","Fri","Sat"))     ## too small [1,3900,1300] , [1,4200,1400] , [1,4380,1460] , 
 
 #plot(hpc2$Global_active_power,freq=T,xlab="Global Active Power (kilowatts)",ylab="Frequency",main="Global Active Power",col="red")
 dev.off()

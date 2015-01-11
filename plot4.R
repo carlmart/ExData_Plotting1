@@ -17,12 +17,12 @@ par(mfrow = c(2,2))
 # #1 top left old plot2
 plot(hpc2$daytime,hpc2$Global_active_power,ylab="Global Active Power (kilowatts)",type="l",xaxt="n")
 lines(hpc2$daytime,hpc2$Global_active_power,ylab="Global Active Power (kilowatts)")
-axis(1,at=1:3,lab=c("Thu","Fri","Sat"))
+axis(1,at=seq(1,4380,by = 1460) ,lab=c("Thu","Fri","Sat"))
 #######
 # #2 top right
 plot(hpc2$daytime,hpc2$Voltage,ylab="Voltage",xlab="datetime",type="l",xaxt="n")
 lines(hpc2$daytime,hpc2$Voltage)
-axis(1,at=1:3,lab=c("Thu","Fri","Sat"))
+axis(1,at=seq(1,4380,by = 1460) ,lab=c("Thu","Fri","Sat"))
 
 # #3 bottom left old plot3
 plot(hpc2$daytime,hpc2$Sub_metering_1,ylab="Energy sub metering",type="l",xaxt="n")
@@ -35,9 +35,9 @@ legend("topright", legend = legend_labels, col = legend_colors, lty = 1, bg = "t
 
 # #4  bottom right
 
-plot(hpc2$daytime,hpc2$Global_reactive_power,ylab="Global Reactive Power (kilowatts)",type="l",xaxt="n")
+plot(hpc2$daytime,hpc2$Global_reactive_power,ylab="Global Reactive Power (kilowatts)",type="l",xlab="datetime",xaxt="n")
 lines(hpc2$daytime,hpc2$Global_reactive_power)
-axis(1,at=1:3,lab=c("Thu","Fri","Sat"))
+axis(1,at=seq(1,4380,by = 1460) ,lab=c("Thu","Fri","Sat"))
 
 
 
